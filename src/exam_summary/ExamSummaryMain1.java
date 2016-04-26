@@ -39,33 +39,33 @@ public class ExamSummaryMain1 {
 		//register始まり
 		// 一人目
 		es.register("KC001", "MATH", 90);
-		es.register("KC001", "SCIENCE", 90);
-		es.register("KC001", "ENGLISH", 100);
+		es.register("KC001", "SCIENCE", 75);
+		es.register("KC001", "ENGLISH", 80);
 
 		// 二人目
 		es.register("KC002", "MATH", 95);
-		es.register("KC002", "SCIENCE", 100);
+		es.register("KC002", "SCIENCE", 65);
 		es.register("KC002", "ENGLISH", 70);
 
 		// 三人目
 		es.register("KC003", "MATH", 70);
-		es.register("KC003", "SCIENCE", 100);
-		es.register("KC003", "ENGLISH", 55);
+		es.register("KC003", "SCIENCE", 80);
+		es.register("KC003", "ENGLISH", 80);
 
 		// 四人目
 		es.register("KC004", "MATH", 95);
 		es.register("KC004", "SCIENCE", 65);
-		es.register("KC004", "ENGLISH", 100);
+		es.register("KC004", "ENGLISH", 70);
 
 		// 五人目
 		es.register("KC005", "MATH", 90);
 		es.register("KC005", "SCIENCE", 90);
-		es.register("KC005", "ENGLISH", 100);
+		es.register("KC005", "ENGLISH", 75);
 
 		// 六人目
 		es.register("KC006", "MATH", 80);
 		es.register("KC006", "SCIENCE", 90);
-		es.register("KC006", "ENGLISH", 100);
+		es.register("KC006", "ENGLISH", 90);
 		//register終わり
 
 		//getScore始まり
@@ -74,9 +74,9 @@ public class ExamSummaryMain1 {
 		subList.add("MATH");
 		subList.add("SCIENCE");
 		subList.add("ENGLISH");
-		Integer score = Integer.valueOf(es.getScore(student, subList.get(2)));
+		Integer score = Integer.valueOf(es.getScore(student, subList.get(0)));
 
-		System.out.println("学籍番号" + student + "番の" + subList.get(2) + "の点数は" + score + "点です");
+		System.out.println("学籍番号" + student + "番の" + subList.get(0) + "の点数は" + score + "点です");
 		//getScore終わり
 
 		//getTopScoreIdsBySubject始まり
@@ -84,9 +84,9 @@ public class ExamSummaryMain1 {
 		List<String> l1 = es.getTopScoreIdsBySubject(subList.get(1));
 		List<String> l2 = es.getTopScoreIdsBySubject(subList.get(2));
 
-		System.out.println("数学の得点が最も高かったメンバーは" + l + "です。");
-		System.out.println("科学の得点が最も高かったメンバーは" + l1 + "です。");
-		System.out.println("英語の得点が最も高かったメンバーは" + l2 + "です。");
+		System.out.println(subList.get(0) + "の得点が最も高かったメンバーは" + l + "です。");
+		System.out.println(subList.get(1) + "の得点が最も高かったメンバーは" + l1 + "です。");
+		System.out.println(subList.get(2) + "の得点が最も高かったメンバーは" + l2 + "です。");
 		//getTopScoreIdsBySubject終わり
 
 		//getIdsByAverage始まり
