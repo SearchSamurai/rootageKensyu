@@ -195,7 +195,7 @@ public class StringBuilderStudy {
 		}
 //		2パターン目
 		StringBuilder sb_d = new StringBuilder("くり返し:");
-		for (int i = 0; i < 10; i++){
+		for (int i = 0; i < 100; i++){
 			sb_d.insert(sb_d.length(),i+1);
 			System.out.println(sb_d);
 			sb_d.delete(5,sb_d.length());
@@ -217,7 +217,7 @@ public class StringBuilderStudy {
 
 //		3パターン目
 		StringBuilder sb_g = new StringBuilder("くり返し:");
-		for (int i = 0; i < 10; i++){
+		for (int i = 0; i < 100; i++){
             sb_g.append(i + 1);
             System.out.println(sb_g);
 			sb_g.setLength(5); //lengthが5になるように切り詰めている。現時点ではdeleteより実行速度が早い。

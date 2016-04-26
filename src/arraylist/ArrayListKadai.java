@@ -30,9 +30,8 @@ public class ArrayListKadai {
 		for(int i = 0; i < l1.size() - 1; i++){
 			if(l1.get(i).equals(l1.get(i + 1)) == true){
 				continue;
-			} else {
-			  System.out.println(i  + "番目:" + l1.get(i));
 			}
+			System.out.println(i  + "番目:" + l1.get(i));
 		}
 		System.out.println((l1.size() - 1) + "番目:" + l1.get(l1.size() - 1));
 		System.out.println("-----ここまでmethod3-----");

@@ -376,7 +376,7 @@ public class ArrayListStudy {
             		System.out.println(s[i]);
             	}
             	System.out.println();
-            	for(int i = 0; i < s.length; i++){
+            	for(int i = 0; i < s1.length; i++){
             		System.out.println("配列s1[" + i + "}" + "の値は");
             		System.out.println(s1[i]);
             	}

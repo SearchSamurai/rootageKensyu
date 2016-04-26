@@ -11,13 +11,13 @@ import java.util.List;
 public class ExamSummary {
 
 	//学籍番号登録リスト
-    List<String> noList = new ArrayList<String>();
+	List<String> noList = new ArrayList<String>();
 
-    //科目登録リスト
-    List<String> subList = new ArrayList<String>();
+	//科目登録リスト
+	List<String> subList = new ArrayList<String>();
 
-    //点数登録リスト
-    List<Integer> scoList = new ArrayList<Integer>();
+	//点数登録リスト
+	List<Integer> scoList = new ArrayList<Integer>();
 
 	/**
 	 * 学籍番号、科目、得点を登録する。
@@ -25,9 +25,9 @@ public class ExamSummary {
 	public void register(String no, String subject, int score) {
 
 		//引数で渡された値を各リストへ登録
-	    noList.add(no);
-	    subList.add(subject);
-	    scoList.add(Integer.valueOf(score));
+		noList.add(no);
+		subList.add(subject);
+		scoList.add(Integer.valueOf(score));
 	}
 	/**
 	 * 引数で指定された学籍番号・科目の得点を返す。
@@ -44,7 +44,7 @@ public class ExamSummary {
 			if((noList.get(i).equals(no)) && subList.get(i).equals(subject)){
 				reScore = scoList.get(i).intValue();
 			}
-        return reScore;
+		return reScore;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class ExamSummary {
 	public List<String> getTopScoreIdsBySubject(String subject) {
 
 		//各人の、引数で渡された科目の得点のみを一旦格納するリスト
-	    List<Integer> oneSubScoList = new ArrayList<Integer>();
+		List<Integer> oneSubScoList = new ArrayList<Integer>();
 
 		//引数で指定された科目の最高得点の学籍番号格納用リスト(戻り値)
 		List<String> l = new ArrayList<String>();
@@ -104,12 +104,12 @@ public class ExamSummary {
 		List<String> l = new ArrayList<String>();
 
 		//全科目の平均得点が高い順の学籍番号を格納するリスト
-        List<String> noList2 = new ArrayList<String>();
+		List<String> noList2 = new ArrayList<String>();
 
-        //後のソート処理用に、初期値として学籍番号格納リストの0番目の番号をadd
-        noList2.add(noList.get(0));
+		//後のソート処理用に、初期値として学籍番号格納リストの0番目の番号をadd
+		noList2.add(noList.get(0));
 
-        //教科数カウント用変数
+		//教科数カウント用変数
 		int countSub = 0;
 
 		//人数カウント用変数
@@ -195,18 +195,13 @@ public class ExamSummary {
 
 		System.out.println("四捨五入した平均点を学籍番号順に表示します" + l);
 
-		//学籍番号順に格納された平均点のリストを、平均点が高い順にソート
-		//同時に、学籍番号も合わせてソートすることで、全科目の平均得点の高い順に学籍番号がセットし直される。
+		//各人の平均点が格納されたリストを比較しながら、学籍番号をソートすることで、全科目の平均得点の高い順に学籍番号が格納される。
 		//最後にそのリストを返す。
 		for(int i = 0; i < l.size()-1; i++){
 
 			for(int j = i+1; j < l.size(); j++){
 
 				if(Double.valueOf(l.get(j)).doubleValue() > Double.valueOf(l.get(i)).doubleValue()){
-
-					double tmp = Double.valueOf(l.get(j)).doubleValue();
-					l.set(j, l.get(i));
-					l.set(i, String.valueOf(tmp));
 
 					String tmp2 = noList2.get(j);
 					noList2.set(j, noList2.get(i));

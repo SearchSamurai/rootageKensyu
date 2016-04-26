@@ -9,7 +9,7 @@ public class ArrayKadai {
 					{80, 1, 7, 56}
 				   };
 //	配列の中のすべての要素を1つずつ出力する処理
-	
+
 		for(int i = 0; i < test.length; i++){
 			for(int j = 0; j < test[i].length; j++){
 				System.out.println(test[i][j]);
