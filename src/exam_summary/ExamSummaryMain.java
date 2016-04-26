@@ -30,6 +30,9 @@ import java.util.List;
 
 public class ExamSummaryMain {
 
+//	ExamSummary1とExamSummaryMain1が完成形なのでそちらを参照ください。
+//	こちらは学籍番号課題出題時の提出版で、"ある科目を欠席した生徒がいた場合"
+//	を想定した処理ができていません。n人が3科目受けた前提で処理をしています。
 	public static void main(String[] args) {
 
 		ExamSummary es = new ExamSummary();
