@@ -1,6 +1,7 @@
 package interface_study;
 import java.math.BigDecimal;
 public class ImpleStudyMain {
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 	    // 左辺と右辺が同じ型
 	    ImpleStudy imple1 = new ImpleStudy();

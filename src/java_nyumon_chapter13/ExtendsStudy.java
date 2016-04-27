@@ -2,7 +2,8 @@ package java_nyumon_chapter13;
 
 public class ExtendsStudy {
 
-    public static void main(String[] args) {
+    @SuppressWarnings("static-access")
+	public static void main(String[] args) {
         // 左辺と右辺が同じ型
         System.out.println("- 左辺と右辺が同じ型 ---------");
 

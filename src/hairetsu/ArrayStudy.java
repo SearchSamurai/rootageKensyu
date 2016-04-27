@@ -13,7 +13,7 @@ public class ArrayStudy {
 //    	array[2] = 70;
     	final int[] a = {1,2,3};
     	a[0] = 0;
-    	int[] b = new int[]{3};
+//    	int[] b = new int[]{3};
 //    	a = b;
 
     	System.out.println(array[0]);
@@ -32,6 +32,6 @@ public class ArrayStudy {
     	System.out.println(array[0]);
 
     	array = null;
-    	array[0] = 10;
+//    	array[0] = 10;
     }
 }

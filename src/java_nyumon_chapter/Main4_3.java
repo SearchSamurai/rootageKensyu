@@ -1,6 +1,6 @@
 package java_nyumon_chapter;
 public class Main4_3 {
     public static void main(String[] args) {
-    	int[] score = new int[5];
+//    	int[] score = new int[5];
     }
 }

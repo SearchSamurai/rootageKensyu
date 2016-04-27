@@ -1,7 +1,6 @@
 package arraylist;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 public class ArrayListStudy {
 
             public static void main(String[] args) {
@@ -15,7 +14,7 @@ public class ArrayListStudy {
                 li1.add(Integer.valueOf(10));
                 System.out.println(li1.get(0));
 
-                LinkedList<Integer> li2 = new LinkedList<Integer>();
+//                LinkedList<Integer> li2 = new LinkedList<Integer>();
             	System.out.println("----------ここまで例題----------" + "\n");
 
 

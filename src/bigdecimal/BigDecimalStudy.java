@@ -41,7 +41,7 @@ public class BigDecimalStudy {
         //BigDecimal ans2 = ans1.add(bd4_1); //before
         //System.out.println(ans2); //before
 
-        BigDecimal ans2 = bd3.add(bd4).add(bd4_1); //after
+//        BigDecimal ans2 = bd3.add(bd4).add(bd4_1); //after
         System.out.println(bd3.add(bd4).add(bd4_1)); //after
 
         //divide 除算を行う
@@ -100,6 +100,6 @@ public class BigDecimalStudy {
 		System.out.println("double型の変数" + do1 + "をnewを使ってBigDecimal型に変換すると");
 		System.out.println(bd14);
 
-		BigDecimal bd15 = BigDecimal.valueOf(100);
+//		BigDecimal bd15 = BigDecimal.valueOf(100);
     }
 }
