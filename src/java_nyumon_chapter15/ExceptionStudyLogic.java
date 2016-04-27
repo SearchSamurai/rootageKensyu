@@ -1,4 +1,4 @@
-package chapter15;
+package java_nyumon_chapter15;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
