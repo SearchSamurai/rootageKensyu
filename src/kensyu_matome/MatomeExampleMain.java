@@ -9,7 +9,7 @@ public class MatomeExampleMain {
 	 */
 	public static void main(String[] args) {
 
-		String str = "あaいうbcえ";
+		String str = "あaいうbcえ1111222233334444ああいい123532あげあげ12あ";
 
 		MatomeExample m = new MatomeExample();
 

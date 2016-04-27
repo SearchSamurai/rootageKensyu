@@ -28,7 +28,9 @@ public class Matome {
 
 				//文字コードはMS932を指定。引数で渡された文字列の0~i番目の文字列から、getBytesで
 				//バイト数を取得。しかしこのままではbyteの配列型なので、.lengthでint型の数値として長さを取得
-				countByte = str.substring(0,i).getBytes("MS932").length;
+				//substringメソッドを使用する場合、指定した第二引数-1番目のインデックス番号が末尾になる
+				//つまり、第一引数と第二引数の値が同じ場合(iが0の場合)に、文字列を切り出せず無意味になるので、第二引数はi+1を指定する
+				countByte = str.substring(0,i+1).getBytes("MS932").length;
 
 				//区切りたい文字列のバイト数が、区切りたいバイト数以上の値になった場合・・・
 				if(countByte >= devideByte){
@@ -36,22 +38,22 @@ public class Matome {
 					//さらに、区切りたい文字列のバイト数が、区切りたいバイト数と等値な場合・・・
 					if(countByte == devideByte){
 
-						//0~i番目の文字列までは条件に当てはまるので、tmpに格納
-						tmp = str.substring(0,i);
+						//0~i+1番目の文字列までは条件に当てはまるので、tmpに格納
+						tmp = str.substring(0,i+1);
 
 					//そうでない(区切りたい文字列のバイト数が、区切りたいバイト数を超えていた)場合・・・
 					} else {
 
 						//0~i番目の文字列のバイト数は、区切りたいバイト数を超えているので、
-						//末尾1文字を減らすために、0~i-1番目の文字列をtmpに格納
-						tmp = str.substring(0,i-1);
+						//末尾1文字を減らすために、0~i番目の文字列をtmpに格納
+						tmp = str.substring(0,i);
 					}
 
 					//tmpをリストに追加
 					strSeparate.add(tmp);
 
-					//引数で渡された文字列から、リストに格納済みの文字列(tmp)を削除(空文字に置換)
-					str = str.replace(tmp , "");
+					//引数で渡された文字列から、リストに格納済みの文字列(tmp)が最初に出てくる部分を削除(空文字に置換)
+					str = str.replaceFirst(tmp , "");
 
 					//文字列の長さが変わったので、長さを再取得
 					strLength = str.length();
