@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Matome {
 
-	//指定されたバイト数ごとに区切って渡すメソッド
+	//指定されたバイト数ごとに文字列を区切って渡すメソッド
 	public List<String> byteSeparate(int devideByte , String str){
 
 		//指定されたバイト数ごとに区切られた文字列を格納していくリスト
@@ -23,7 +23,9 @@ public class Matome {
 
 		//指定されたバイト数ごとに文字列を区切っていくループ処理
 		for(int i = 0; i < strLength; i++){
+
 			try {
+
 				//文字コードはMS932を指定。引数で渡された文字列の0~i番目の文字列から、getBytesで
 				//バイト数を取得。しかしこのままではbyteの配列型なので、.lengthでint型の数値として長さを取得
 				countByte = str.substring(0,i).getBytes("MS932").length;
@@ -64,7 +66,7 @@ public class Matome {
 			}
 		}
 
-		//指定されたバイト数ごとに区切っていき、最後に残った文字列をリストに格納
+		//最後に残った文字列をリストに追加
 		strSeparate.add(str);
 
 		//メソッドの呼び出し元へ値(リスト)を返す
