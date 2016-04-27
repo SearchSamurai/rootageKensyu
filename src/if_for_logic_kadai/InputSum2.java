@@ -14,6 +14,7 @@ package if_for_logic_kadai;
 //}
 
 public class InputSum2{
+	@SuppressWarnings("resource")
 	public static void main(String[] args){
 
 		System.out.println("1からいくつまでの合計を求めますか？ 1より大きい整数を1つ入力してください。");

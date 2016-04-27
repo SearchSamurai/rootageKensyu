@@ -30,6 +30,7 @@ public class LogicKadai{
 		return result;
 	}
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args){
 		System.out.println("入力された整数が偶数ならtrueを、奇数ならfalseを出力します。整数を1つ入力して下さい。");
 		int x = new java.util.Scanner(System.in).nextInt();
