@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Matome {
 
-	//指定されたバイト数ごとに文字列を区切って渡すメソッド
+	//指定されたバイト数ごとに、文字列を区切って渡すメソッド
 	public List<String> byteSeparate(int devideByte , String str){
 
 		//指定されたバイト数ごとに区切られた文字列を格納していくリスト
