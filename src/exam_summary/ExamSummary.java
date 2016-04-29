@@ -195,13 +195,17 @@ public class ExamSummary {
 
 		System.out.println("四捨五入した平均点を学籍番号順に表示します" + l);
 
-		//各人の平均点が格納されたリストを比較しながら、学籍番号をソートすることで、全科目の平均得点の高い順に学籍番号が格納される。
-		//最後にそのリストを返す。
+		//各人の平均点と、それに対応した学籍番号を同時にソートすることで、全科目の平均得点の高い順に学籍番号がソートされる。
+		//最後にそのリストを返す
 		for(int i = 0; i < l.size()-1; i++){
 
 			for(int j = i+1; j < l.size(); j++){
 
 				if(Double.valueOf(l.get(j)).doubleValue() > Double.valueOf(l.get(i)).doubleValue()){
+
+					double tmp = Double.valueOf(l.get(j)).doubleValue();
+					l.set(j, l.get(i));
+					l.set(i, String.valueOf(tmp));
 
 					String tmp2 = noList2.get(j);
 					noList2.set(j, noList2.get(i));

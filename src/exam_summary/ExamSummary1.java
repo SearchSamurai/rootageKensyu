@@ -48,19 +48,19 @@ public class ExamSummary1 {
 	/**
 	 * 引数で指定された学籍番号・科目の得点を返す。
 	 */
-	public int getScore(String no, String subject) {
+	public Integer getScore(String no, String subject) {
 
 		//引数で指定された学籍番号・科目の得点格納用リスト(戻り値)
-		int reScore = 0;
+		Integer score = null;
 
 		//登録時、単に別々のリストにaddしているだけで、データ同士の関連性はないので、if文で紐付けしている。
 		//学籍番号と科目が、それぞれ引数で渡されたものと一致した場合、そのi番目の得点が、
 		//引数で指定された学籍番号・科目の得点ということになるので、その値を返している。
 		for(int i = 0; i < allNoList.size(); i++)
 			if((allNoList.get(i).equals(no)) && subList.get(i).equals(subject)){
-				reScore = scoList.get(i).intValue();
+				score = scoList.get(i);
 			}
-		return reScore;
+		return score;
 	}
 
 	/**
@@ -118,16 +118,19 @@ public class ExamSummary1 {
 
 		//各人の合計点を格納する変数。後に、各人の受験科目数で割った平均を算出してリストにaddする
 		//"学籍番号" "科目" "得点"をセットで登録していることから、
-		//必ず最初に登録されている人は1科目受けているので、得点リストの最初に格納されている得点で初期化している。
+		//必ず最初に登録されている人は1科目受けているので、得点リストの0番目に格納されている得点で初期化している。
 		int countSco = scoList.get(0).intValue();
 
-		//各人の受験科目数を格納する変数。後にリストにaddする
+		//各人の受験科目数を格納する変数
 		//"学籍番号" "科目" "得点"をセットで登録していることから、
 		//必ず最初に登録されている人は1科目受けているので、1で初期化している。
 		int countNo = 1;
 
+		//平均点ソート用に一時的に格納する変数
+		BigDecimal tmp;
+
 		//学籍番号ソート用に一時的に格納する変数
-		String tmp;
+		String tmp2;
 
 		//各人の受験科目数格納用リスト
 		List<BigDecimal> countNoList = new ArrayList<BigDecimal>();
@@ -135,27 +138,22 @@ public class ExamSummary1 {
 		//各人の平均点格納用リスト
 		List<BigDecimal> sumAvgList = new ArrayList<BigDecimal>();
 
-		for(int i = 0; i < allNoList.size()-1; i++){
+		//for文用の、リストサイズ格納変数
 
-			//最後の繰り返し処理時に~
-			if(i == allNoList.size()-2){
+		int listSize = 0;
 
-				//登録されている最後の人の得点と科目数の合計を算出
-				countSco += scoList.get(i+1).intValue();
-				countNo += 1;
+		listSize = allNoList.size();
 
-				//上の2つをそれぞれのリストへ格納
-				sumAvgList.add(BigDecimal.valueOf(countSco));
-				countNoList.add(BigDecimal.valueOf(countNo));
+		for(int i = 0; i < listSize-1; i++){
 
-				//iとi+1番目が同じ学籍番号かで判定し、各人の合計点と受験科目数を算出
-			} else if(allNoList.get(i).equals(allNoList.get(i+1))){
+			    //iとi+1番目が同じ学籍番号かで判定し、各人の合計点と受験科目数を算出
+			if(allNoList.get(i).equals(allNoList.get(i+1))){
 
 				countSco += scoList.get(i+1).intValue();
 				countNo += 1;
 
-				//次の人に移った場合、その前の人の合計点と受験科目数を、それぞれのリストへ格納
-				//得点の合計と受験科目数を、次の人の処理に合わせて再代入する。
+				//i+1番目に異なる学籍番号が現れた場合、合計点と受験科目数を、それぞれのリストへ格納
+				//また、得点の合計と受験科目数の値を、次の生徒の処理に合わせて再代入する
 			} else {
 
 				sumAvgList.add(BigDecimal.valueOf(countSco));
@@ -166,32 +164,45 @@ public class ExamSummary1 {
 
 			}
 		}
+		//最後に残った値をそれぞれのリストへ追加する
+		sumAvgList.add(BigDecimal.valueOf(countSco));
+		countNoList.add(BigDecimal.valueOf(countNo));
 
-		//結果の整合性が確認しやすいよう、念のため出力している
+		//結果の整合性が確認しやすいよう、一旦出力している
 		System.out.println("学籍番号順に受験科目数を表示します。" + countNoList);
 		System.out.println("学籍番号順に合計点を表示します。" + sumAvgList);
 
+		//次のfor文に向けて値を再代入
+		listSize = countNoList.size();
+
 		//各人の合計を、各人の受験科目数で割る。その値を小数点第2位で四捨五入し、リストにセットし直す。
-		for (int i = 0; i < countNoList.size(); i++){
+		for (int i = 0; i < listSize; i++){
 
 			sumAvgList.set(i, sumAvgList.get(i).divide(countNoList.get(i) , 2, BigDecimal.ROUND_HALF_UP));
 
 		}
 
-		//結果の整合性が確認しやすいよう、念のため出力している
+		//結果の整合性が確認しやすいよう、一旦出力している
 		System.out.println("学籍番号順に平均点を表示します。" + sumAvgList);
 
-		//各人の平均点を比較しながら、学籍番号をソートすることで、全科目の平均得点の高い順に学籍番号がソートされる。
-		//最後にそのリストを返す
-		for(int i = 0; i < sumAvgList.size()-1; i++){
+		//次のfor文に向けて値を再代入
+		listSize = sumAvgList.size();
 
-			for(int j = i+1; j < sumAvgList.size(); j++){
+		//各人の平均点と、それに対応した学籍番号を同時にソートすることで、全科目の平均得点の高い順に学籍番号がソートされる。
+		//最後にそのリストを返す
+		for(int i = 0; i < listSize-1; i++){
+
+			for(int j = i+1; j < listSize; j++){
 
 				if(sumAvgList.get(j).compareTo(sumAvgList.get(i)) > 0){
 
-					tmp = noList.get(j);
-					noList.set(j, noList.get(i));
-					noList.set(i, tmp);
+					tmp = sumAvgList.get(j);
+					sumAvgList.set(j , sumAvgList.get(i));
+					sumAvgList.set(i , tmp);
+
+					tmp2 = noList.get(j);
+					noList.set(j , noList.get(i));
+					noList.set(i , tmp2);
 
 				}
 			}

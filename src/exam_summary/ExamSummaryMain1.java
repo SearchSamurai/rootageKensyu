@@ -69,14 +69,25 @@ public class ExamSummaryMain1 {
 		//register終わり
 
 		//getScore始まり
+
+		//学籍番号
 		String student = "KC002";
+		//科目リスト
 		List<String> subList = new ArrayList<String>();
+		//科目登録
 		subList.add("MATH");
 		subList.add("SCIENCE");
 		subList.add("ENGLISH");
-		Integer score = Integer.valueOf(es.getScore(student, subList.get(0)));
+		//指定した学籍番号及び科目の得点を格納する変数
+		Integer score = es.getScore(student, subList.get(0));
 
-		System.out.println("学籍番号" + student + "番の" + subList.get(0) + "の点数は" + score + "点です");
+		//scoreがnullな(欠席によりその科目の試験を受けていなかった)場合・・・
+		if(score == null){
+			System.out.println("学籍番号" + student + "番の" + subList.get(0) + "の得点データはありませんでした");
+		} else {
+			System.out.println("学籍番号" + student + "番の" + subList.get(0) + "の点数は" + score + "点です");
+		}
+
 		//getScore終わり
 
 		//getTopScoreIdsBySubject始まり
