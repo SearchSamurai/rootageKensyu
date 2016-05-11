@@ -18,9 +18,9 @@ public class MatomeMain {
 
 		//指定されたバイト数ごとに区切られた文字列が格納されたリストの中身を順に表示
 
-		int length = strSeparate.size();
+		int strSeparateSize = strSeparate.size();
 
-		for(int i = 0; i < length; i++){
+		for(int i = 0; i < strSeparateSize; i++){
 			System.out.println(strSeparate.get(i));
 		}
 	}
