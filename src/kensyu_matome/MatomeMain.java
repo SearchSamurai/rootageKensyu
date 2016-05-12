@@ -7,7 +7,7 @@ public class MatomeMain {
 	public static void main(String[] args) {
 
 		//後にこの文字列を、指定されたバイト数ごとに区切っていく
-		String str = "111111111111ああああああああ";
+		String str = "1111あいうえ11おか1き1く111け111";
 
 		//指定されたバイト数ごとに、文字列を区切る処理を行うクラスから、インスタンスを生成
 		Matome m = new Matome();
